@@ -1,21 +1,27 @@
 # =============================
 # Import Libraries
 # =============================
+
+# =============================
+# Load the Model
+# =============================
+
+# =============================
+# Import Libraries
+# =============================
 from flask import Flask, render_template, request, url_for
 import numpy as np
 import os
 from tensorflow.keras.preprocessing.image import load_img, img_to_array
 from tensorflow.keras.models import load_model
-import os
 
 # =============================
 # Load the Model
-# =============================
+
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 MODEL_PATH = os.path.join(BASE_DIR, 'aloe_vera_model.h5')
 model = load_model(MODEL_PATH)
 print("Model Loaded Successfully")
-
 # =============================
 # Utility Function for Prediction
 # =============================
@@ -91,5 +97,5 @@ def predict():
 # Main Execution
 # =============================
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 8080))
+    port = int(os.environ.get("PORT", 10000))  # Render uses PORT env variable
     app.run(host="0.0.0.0", port=port)
