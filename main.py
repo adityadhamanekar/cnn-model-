@@ -6,11 +6,13 @@ import numpy as np
 import os
 from tensorflow.keras.preprocessing.image import load_img, img_to_array
 from tensorflow.keras.models import load_model
+import os
 
 # =============================
 # Load the Model
 # =============================
-MODEL_PATH = './aloe_vera_model.h5'  # Update this path if needed
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+MODEL_PATH = os.path.join(BASE_DIR, 'aloe_vera_model.h5')
 model = load_model(MODEL_PATH)
 print("Model Loaded Successfully")
 
