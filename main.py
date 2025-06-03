@@ -10,7 +10,7 @@ from tensorflow.keras.models import load_model
 # =============================
 # Load the Model
 # =============================
-MODEL_PATH = '/aloe_vera_model.h5'  # Update this path if needed
+MODEL_PATH = './aloe_vera_model.h5'  # Update this path if needed
 model = load_model(MODEL_PATH)
 print("Model Loaded Successfully")
 
@@ -89,4 +89,5 @@ def predict():
 # Main Execution
 # =============================
 if __name__ == "__main__":
-    app.run(debug=True, threaded=False, port=8080)
+    port = int(os.environ.get("PORT", 8080))
+    app.run(host="0.0.0.0", port=port)
